@@ -1,0 +1,147 @@
+<div class="bg-white dark:bg-gray-900 text-center justify-center">
+  <div class="p-3 mx-3 max-w-screen lg:py-12">
+    <div id="step1">
+      <h1
+      class="m-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+    >
+      Cambiando filtros
+    </h1>
+    <h5 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">1. Elige tu imagen</h5>
+    <input
+      class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400"
+      type="file"
+      accept="image/.png"
+      (change)="onFileSelected($event)"
+    />
+    </div>
+    <div id="step2">
+      <h5 class="m-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">2. Elige tu filtro</h5>
+    </div>
+    <div id="buttons"
+    [class.disabled]="!imageSelected"
+      class="grid grid-cols-5 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 gap-3 m-3"
+    >
+      <button
+      (click)="processImage('smooth')"
+      (click)="handleButtonClick('Suavizado')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Suavizado
+      </button>
+      <button
+      (click)="processImage('ruido1')"
+      (click)="handleButtonClick('Ruido 1')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Ruido 1
+      </button>
+      <button
+      (click)="processImage('ruido2')"
+      (click)="handleButtonClick('Ruido 2')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Ruido 2
+      </button>
+      <button
+      (click)="processImage('ruido3')"
+      (click)="handleButtonClick('Ruido 3')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Ruido 3
+      </button>
+      <button
+      (click)="processImage('ruido4')"
+      (click)="handleButtonClick('Ruido 4')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Ruido 4
+      </button>
+      <button
+      (click)="processImage('ruido5')"
+      (click)="handleButtonClick('Ruido 5')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Ruido 5
+      </button>
+      <button
+      (click)="processImage('ruido6')"
+      (click)="handleButtonClick('Ruido 6')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Ruido 6
+      </button>
+      <button
+      (click)="processImage('ruido7')"
+      (click)="handleButtonClick('Ruido 7')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Ruido 7
+      </button>
+      <button
+      (click)="processImage('ruido8')"
+      (click)="handleButtonClick('Ruido 8')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Ruido 8
+      </button>
+      <button
+      (click)="processImage('ruido9')"
+      (click)="handleButtonClick('Ruido 9')"
+        class="p-2 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-lg bg-orange-400 hover:bg-orange-700 focus:ring-4 focus:ring-orange-100 dark:focus:ring-red-600"
+      >
+        Ruido 9
+      </button>
+    </div>
+    <div id="reset" [class.disabled]="!imageSelected">
+      <button
+      (click)="processImage('reset')"
+      (click)="handleButtonClick('Sin filtro')"
+        class="p-5 inline-flex justify-center items-center text-base font-medium text-center text-white rounded-full bg-burnt_red hover:bg-blood_red focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+      >
+        Borrar filtro
+      </button>
+    </div>
+    <div id="images">
+      <div>
+        <h5 class="m-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">3. Diviertete!</h5>
+      </div>
+      <div class="grid grid-cols-2 gap-4 align-middle">
+        <div class="justify-center">
+          <h3
+            class="mb-4 text-xl font-extrabold tracking-tight text-gray-900 md:text-4xl dark:text-white"
+          >
+            Imagen sin filtro
+          </h3>
+          <div
+          class="text-center justify-center"
+          *ngIf="selectedImageSrc">
+          <img
+          class="w-4/6"
+          id="image"
+          [src]="selectedImageSrc"
+          alt="Imagen"
+        />
+          </div>
+
+        </div>
+        <div class="justify-center">
+          <h3
+            class="mb-4 text-xl font-extrabold tracking-tight text-gray-900 md:text-4xl dark:text-white"
+          >
+            Imagen con filtro de {{selectedButton}}
+          </h3>
+          <div
+          class="text-center justify-center"
+          *ngIf="processedImage">
+            <img
+            class="w-4/6 justify-center"
+            [src]="processedImage"
+            alt="Imagen con filtro"
+          />
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

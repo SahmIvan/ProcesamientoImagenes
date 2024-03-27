@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Filters</title>
+</head>
+<body>
+    <div>
+    
+    <!-- Botones Para Filtro -->
+        <button onclick="applyFilter('smooth')">Smooth Filter</button>
+        <button onclick="applyFilter('reset')">None</button>
+        <button onclick="applyFilter('ruido1')">ruido1</button>
+        <button onclick="applyFilter('ruido2')">ruido2</button>
+        <button onclick="applyFilter('ruido3')">ruido3</button>
+        <Button onclick="applyFilter('ruido4')">ruido4</Button>
+        <Button onclick="applyFilter('ruido5')">ruido5</Button>
+        <Button onclick="applyFilter('ruido6')">ruido6</Button>
+        <Button onclick="applyFilter('ruido7')">ruido7</Button>
+        <Button onclick="applyFilter('ruido8')">ruido8</Button>
+        <Button onclick="applyFilter('ruido9')">ruido9</Button>
+        
+    </div>
+    <div>
+        <img id="image" src="data:image/png;base64,{{ graphic }}" alt="Filtered Image">
+    </div>
+
+    <script>
+        function applyFilter(filterName) {
+            // Llama al filtro que se selecciona en el boton
+            fetch(`/Aplicacion/?filter=${filterName}`)
+                .then(response => response.text())
+                .then(html => {
+                    
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const newGraphic = doc.getElementById('image').getAttribute('src');
+    
+                    
+                    document.getElementById('image').src = newGraphic;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

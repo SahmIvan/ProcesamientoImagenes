@@ -1,0 +1,13 @@
+.l-box{
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  display: flexbox;
+  align-items: center;
+  flex-direction: column;
+}
+.disabled {
+  pointer-events: none; /* Disable mouse events */
+  opacity: 0.5; /* Adjust the opacity to visually indicate it is disabled */
+  /* Add any other styling for disabled state */
+}
